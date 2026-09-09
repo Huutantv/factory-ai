@@ -370,7 +370,7 @@ impl AppState {
             blocks: vec![UiBlock {
                 id: 1,
                 kind: BlockKind::Intro,
-                payload: Payload::Text(sanitize_text(intro)),
+                payload: Payload::Text(sanitize_keep_sgr(intro)),
                 complete: true,
             }],
             next_id: 2,

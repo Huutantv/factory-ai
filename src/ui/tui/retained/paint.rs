@@ -286,8 +286,9 @@ fn reverse_line_cols(line: &mut Line<'static>, start_col: usize, end_col: usize)
 
 fn styled_row(kind: BlockKind, row: String) -> Line<'static> {
     match kind {
-        // Intro is sanitised plain (no SGR) → one flat dim line, as before.
-        BlockKind::Intro => Line::styled(row, Style::default().fg(Color::DarkGray)),
+        // Intro keeps its safe SGR colour spans so the splash wordmark remains coloured in the
+        // retained renderer; cursor/screen-control sequences were already removed by sanitization.
+        BlockKind::Intro => Line::from(ansi_spans(&row, Style::default().fg(Color::DarkGray))),
         // Assistant + Generic carry SGR now: parse it into coloured spans over a grey base. The
         // moonlight `▌` gutter keeps its own colour because it rode through as SGR; uncoloured text
         // collapses to one grey span (unchanged look). The structured kinds (Tool/Plan/Diff/Verify)

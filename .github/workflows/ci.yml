@@ -44,15 +44,15 @@ jobs:
           restore-keys: ${{ runner.os }}-cargo-
 
       - name: Build
-        run: cargo build --bin aizen
+        run: cargo build --bin fauto
 
       - name: Test
-        run: cargo test --bin aizen
+        run: cargo test --bin fauto
 
       # What the sandbox can actually enforce on THIS runner, in the job log — the per-platform
       # capability matrix in docs/SANDBOX.md is checked against these outputs at release time.
       - name: Sandbox capability probe
-        run: cargo run --bin aizen -- sandbox doctor --json
+        run: cargo run --bin fauto -- sandbox doctor --json
 
   lint:
     name: fmt + clippy (advisory)

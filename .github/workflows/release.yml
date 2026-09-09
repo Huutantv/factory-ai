@@ -42,14 +42,14 @@ jobs:
         # weights are NOT bundled — a user runs `aizen memory model-download` once to cache
         # potion-base-8M (~30 MB) into ~/.aizen/models/. The Windows runner is MSVC (not the
         # windows-gnu dev box), so the getrandom-0.3 raw-dylib link wall doesn't apply here.
-        run: cargo build --release --features dense --bin aizen
+        run: cargo build --release --features dense --bin fauto
 
       - name: Package binary
         shell: bash
         run: |
           tag="${{ github.event.inputs.tag || github.ref_name }}"
-          asset="aizen-${tag}-${{ matrix.plat }}${{ matrix.ext }}"
-          cp "target/release/aizen${{ matrix.ext }}" "$asset"
+          asset="fauto-${tag}-${{ matrix.plat }}${{ matrix.ext }}"
+          cp "target/release/fauto${{ matrix.ext }}" "$asset"
           ls -lh "$asset"
           echo "ASSET=$asset" >> "$GITHUB_ENV"
 

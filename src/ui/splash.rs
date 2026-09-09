@@ -8,10 +8,9 @@ use console::{measure_text_width, style};
 use std::fmt::Write as _;
 use std::io::IsTerminal as _;
 
-/// Silver gradient for the 5 title rows (near-white → darker grey), 256-color. The block-art wordmark
-/// is metallic silver-white — the brightest note in the moonlight palette, the way the design renders
-/// the AIZEN wordmark at #f5f4f0 over the dark ground.
-const TITLE: [u8; 5] = [255, 253, 251, 248, 245];
+/// Cyan-blue gradient for the 5 title rows, 256-color. The block-art wordmark keeps a calm
+/// moonlit identity while standing out clearly from the dark terminal background.
+const TITLE: [u8; 5] = [51, 45, 39, 33, 27];
 /// The single brand accent — the moonlight silver from [`crate::ui::theme`], shared across the whole
 /// TUI so headers / item names / the input box all speak one colour ("the one who holds the moon").
 pub const ACCENT: u8 = crate::ui::theme::ACCENT;
