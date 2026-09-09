@@ -1,6 +1,6 @@
 # F.Auto installer for Windows (PowerShell 5+).
 #
-#   irm https://raw.githubusercontent.com/aizen-stack/aizen/main/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/Huutantv/factory-ai/main/install.ps1 | iex
 #
 # Downloads the latest optimized `fauto.exe` from GitHub Releases, drops it in
 # %LOCALAPPDATA%\F.Auto (override with $env:AIZEN_INSTALL), and adds that folder
@@ -8,7 +8,7 @@
 
 $ErrorActionPreference = 'Stop'
 
-$Repo   = 'aizen-stack/aizen'
+$Repo   = 'Huutantv/factory-ai'
 $Suffix = 'windows-x86_64.exe'
 $Dir    = if ($env:FAUTO_INSTALL) { $env:FAUTO_INSTALL } else { Join-Path $env:LOCALAPPDATA 'F.Auto' }
 

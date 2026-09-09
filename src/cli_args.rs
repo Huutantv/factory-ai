@@ -1,4 +1,4 @@
-//! The command-line surface: the whole `clap` type tree for `aizen`.
+//! The command-line surface: the whole `clap` type tree for F.Auto.
 //!
 //! Pure declaration — no behavior. Every subcommand enum lives here so that adding or reshaping a
 //! command touches ONE file, and `main.rs` keeps only the dispatch that maps a parsed command to a
@@ -10,8 +10,9 @@ use clap::{Parser, Subcommand};
 #[derive(Parser, Debug)]
 // No explicit `name` — clap uses the binary name (`fauto`) for `--version` and usage output.
 #[command(
-    version,
-    about = "Aizen agentic CLI — streaming chat + a self-learning memory brain"
+    name = "fauto",
+    version = "F.Auto 1.7.7",
+    about = "F.Auto agentic CLI — streaming chat + a self-learning memory brain"
 )]
 pub(crate) struct Cli {
     #[command(subcommand)]
